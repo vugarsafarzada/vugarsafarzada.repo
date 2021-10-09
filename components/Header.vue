@@ -4,7 +4,7 @@
       <h2 class="title">
         <a href="/" style="">
           <img
-            src="../static/images/apple-touch-icon.png"
+            src="../static/images/light-apple-touch-icon.png"
             width="100"
             alt="LOGO"
           />
@@ -26,6 +26,7 @@ export default {
 .header {
   display: flex;
   flex-direction: column;
+  border-bottom: 4px ridge #fff;
 }
 
 .header .title-box {

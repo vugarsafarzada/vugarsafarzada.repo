@@ -10,8 +10,9 @@
     }
 </script>
 
-<style scoped>
-    body{
-        color: red
-    }
+<style>
+  .footer{
+    height: 300px;
+    border-top: 4px ridge #fff;
+  }
 </style>

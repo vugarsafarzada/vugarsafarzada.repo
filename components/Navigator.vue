@@ -2,16 +2,16 @@
   <div class="navigator">
     <ul>
       <li>
-        <a href="/"><i class="fas fa-home"></i> Ana səhifə</a>
+        <a href="/" class="nav-link" ><i class="bi bi-house-fill"/> Ana səhifə</a>
       </li>
       <li>
-        <a href="/"><i class="fas fa-book"></i> Dərslər</a>
+        <a href="/" class="nav-link"><i class="bi bi-journal-code"/> Dərslər</a>
       </li>
       <li>
-        <a href="/"><i class="fas fa-scroll"></i> Məqalələr</a>
+        <a href="/" class="nav-link"><i class="bi bi-file-earmark-text-fill"/> Məqalələr</a>
       </li>
       <li>
-        <a href="/"><i class="far fa-file-alt"></i> CV</a>
+        <a href="/" class="nav-link"><i class="bi bi-file-earmark-person-fill"/> CV</a>
       </li>
     </ul>
   </div>
