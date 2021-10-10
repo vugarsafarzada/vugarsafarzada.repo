@@ -1,8 +1,8 @@
 <template>
   <div class="content">
     <h2>Content <i class="bi bi-arrow-left-circle-fill"></i></h2>
+    <h4 v-if="content_title">Page: {{content_title}}</h4>
     <p>
-
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, atque dolor, exercitationem libero nemo nulla
       provident quae quaerat repellat sit suscipit tempore? Debitis, inventore molestiae nam officia porro quam quia! A
       ab accusamus adipisci animi, architecto asperiores assumenda blanditiis consectetur consequatur culpa distinctio
@@ -45,6 +45,12 @@
 <script>
   export default {
     name: "Content",
+    props:["content_title"],
+    data(){
+      return{
+
+      }
+    }
   }
 </script>
 

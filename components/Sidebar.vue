@@ -1,36 +1,32 @@
 <template>
-  <div class="sidebar-box">
-    <div class="sidebar bg4 shadow">
-      <h2><i class="bi bi-journal-code"/> Dərslər</h2>
-      <ol>
-        <li v-for="l in lessons" :key="l"><a v-bind:href="convert_url('lessons',l)">{{l}}</a></li>
-        <li><a href="/lessons">more...</a></li>
-      </ol>
-    </div>
-
-    <div class="sidebar bg4 shadow">
-      <h2><i class="bi bi-file-earmark-text-fill"/> Məqalələr</h2>
-      <ol>
-        <li v-for="a in articles" :key="a"><a v-bind:href="convert_url('articles',a)">{{a}}</a></li>
-        <li><a href="/articles">more...</a></li>
-      </ol>
-    </div>
+  <div class="sidebar bg4 shadow">
+    <h3><i :class="icon" v-if="icon"/> {{title}}</h3>
+    <ol>
+      <li v-for="a in data" :key="a"><a target="_blank" v-bind:href="convert_url(`${path}`, a)">{{a}}</a></li>
+      <li>
+        <NuxtLink :to="'/' + path">more...</NuxtLink>
+      </li>
+    </ol>
   </div>
 </template>
 
 <script>
   export default {
     name: "Sidebar",
+    props: [
+      "title",
+      "data",
+      "path",
+      "icon"
+    ],
     data() {
       return {
-        lessons: ["Java & Java EE", "Python OOP", "ReactJS & NextJS", "Vue Vuex and NuxtJS", "MongoDB & Mongoose", "CSS & SCSS"],
-        articles: ["Niyə Vue daha yaxşıdı?", "React yoxsa Angular", "C dilləri öldümü?", "Texnologiya və Kompüter", "İlk proqramlaşdırma dilləri"]
+        data: this.data,
       }
     },
     methods: {
       convert_url: function (path, link) {
-        var link1 = link?.split(" ").join("_").toLowerCase()
-
+        var link1 = link?.split(" ").join("_");
         return `/${path}/${this.convertString(link1)}`
       },
       convertString: function (phrase) {

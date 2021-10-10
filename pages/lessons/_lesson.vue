@@ -2,22 +2,17 @@
   <div class="main">
     <Header class="bg2 color1 Header"/>
     <div class="main-body">
-      <Contents class="bg4 color1 shadow"/>
       <div class="sidebar-box">
         <Sidebar
           :title="lessons.name"
           :path="lessons.path"
-          :data="lessons.data"
           :icon="lessons.icon"
-          class="color1"/>
-        <Sidebar
-          :title="articles.name"
-          :path="articles.path"
-          :icon="articles.icon"
-          :data="articles.data"
+          :data="lessons.data"
           class="color1"/>
       </div>
-
+      <Contents
+        :content_title="page_id"
+        class="bg4 color1 shadow"/>
     </div>
     <Footer class="bg1 color3 footer"/>
   </div>
@@ -25,22 +20,18 @@
 
 <script>
   export default {
+    name: "_lesson",
+    methods: {
+      detectPageId: function () {
+        this.page_id = this.$nuxt._route.params.lesson;
+      }
+    },
+
     data() {
       return {
-        articles: {
-          name: "Məqalələr",
-          path: "articles",
-          icon: "bi bi-file-earmark-text-fill",
-          data: [
-            "Niyə Vue daha yaxşıdı?",
-            "React yoxsa Angular",
-            "C dilləri öldümü?",
-            "Texnologiya və Kompüter",
-            "İlk proqramlaşdırma dilləri"
-          ]
-        },
+        page_id: '',
         lessons: {
-          name: "Dərslər",
+          name: "Digər dərslər",
           path: "lessons",
           icon: "bi bi-journal-code",
           data: [
@@ -51,10 +42,14 @@
             "MongoDB & Mongoose",
             "CSS & SCSS"
           ],
-        }
-      };
+        },
+      }
     },
-  };
+
+    mounted() {
+      this.detectPageId()
+    },
+  }
 </script>
 
 <style>
