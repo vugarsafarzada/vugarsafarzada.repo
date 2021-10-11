@@ -2,7 +2,7 @@
   <div class="main">
     <Header class="bg2 color1 Header"/>
     <div class="main-body">
-      <Contents class="bg4 color1 shadow"/>
+      <Main :data="introduce" class="bg4 color1 shadow"/>
       <div class="sidebar-box">
         <Sidebar
           :title="lessons.name"
@@ -25,8 +25,13 @@
 
 <script>
   export default {
+    async fetch() {
+      let Data = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/introduce`).then(res => res.json())
+      this.introduce = Data.data[0];
+    },
     data() {
       return {
+        introduce:{},
         articles: {
           name: "Məqalələr",
           path: "articles",

@@ -11,7 +11,7 @@
           class="color1"/>
       </div>
       <Contents
-        :content_title="page_id"
+        :content_data="lessonsData"
         class="bg4 color1 shadow"/>
     </div>
     <Footer class="bg1 color3 footer"/>
@@ -19,8 +19,10 @@
 </template>
 
 <script>
+  const api_port = process.env.API_PORT;
+  const host = process.env.HOST;
   export default {
-    name: "_lesson",
+    name: "lesson",
     methods: {
       detectPageId: function () {
         this.page_id = this.$nuxt._route.params.lesson;
@@ -43,12 +45,17 @@
             "CSS & SCSS"
           ],
         },
+        lessonsData:{description:"none"}
       }
     },
 
     mounted() {
       this.detectPageId()
     },
+    async fetch() {
+      let Data = await fetch(`http://${host}:${api_port}/api/content/lessons/${this.$nuxt._route.params.lesson}`).then(res => res.json())
+      this.lessonsData = Data.data[0];
+    }
   }
 </script>
 

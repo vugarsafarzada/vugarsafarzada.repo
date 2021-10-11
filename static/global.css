@@ -60,7 +60,7 @@ body {
 }
 
 .color2 {
-  color: #646a74;
+  color: #4d648d;
 }
 
 .color3 {
@@ -85,4 +85,9 @@ body {
 
 .bg4 {
   background-color: #fff;
+}
+
+.blurEffect{
+  -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+  filter: blur(5px);
 }

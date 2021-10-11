@@ -2,7 +2,7 @@
   <div class="sidebar bg4 shadow">
     <h3><i :class="icon" v-if="icon"/> {{title}}</h3>
     <ol>
-      <li v-for="a in data" :key="a"><a target="_blank" v-bind:href="convert_url(`${path}`, a)">{{a}}</a></li>
+      <li v-for="a in data" :key="a"><a v-bind:href="convert_url(`${path}`, a)">{{a}}</a></li>
       <li>
         <NuxtLink :to="'/' + path">more...</NuxtLink>
       </li>
@@ -21,7 +21,6 @@
     ],
     data() {
       return {
-        data: this.data,
       }
     },
     methods: {
