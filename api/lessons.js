@@ -20,7 +20,7 @@ const Create = (lesson_imageUrl, lesson_title, lesson_description, lesson_catego
     creater_id,
   }, (err, result) => {
     if (err) throw err;
-    console.log(`>> NEW LESSON: "${lesson_title}" ADDED TO DATABASE`);
+    console.log(`>> NEW LESSON: "${lesson_title}" ADDING TO DATABASE`);
   });
 }
 

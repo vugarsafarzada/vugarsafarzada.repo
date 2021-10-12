@@ -1,0 +1,39 @@
+[
+  {
+    "home": "bi bi-house-fill",
+    "lessons": "bi bi-collection-fill",
+    "articles": "bi bi-chat-square-text-fill",
+    "cv": "bi bi-file-earmark-person-fill",
+    "earmark": "bi bi-file-earmark-text-fill",
+    "journal_code": "bi bi-journal-code",
+    "info": "bi bi-info-circle",
+    "code": "bi bi-code-slash",
+    "emoji": {
+      "angry": "bi bi-emoji-angry",
+      "dizzy": "bi bi-emoji-dizzy",
+      "expressionless": "bi bi-emoji-expressionless",
+      "frown": "bi bi-emoji-frown",
+      "heart_eyes": "bi bi-emoji-heart-eyes",
+      "laughing": "bi bi-emoji-laughing",
+      "neutral": "bi bi-emoji-neutral",
+      "smile": "bi bi-emoji-smile",
+      "sunglasses": "bi bi-emoji-sunglasses",
+      "wink": "bi bi-emoji-wink",
+      "like": "bi bi-hand-thumbs-up",
+      "dislike": "bi bi-hand-thumbs-down"
+    },
+    "programming": {
+      "html": "fab fa-html5",
+      "css": "fab fa-css3-alt",
+      "js": "fab fa-js-square",
+      "bootstrap": "fab fa-bootstrap",
+      "react": "fab fa-react",
+      "vue": "fab fa-vuejs",
+      "node": "fab fa-node",
+      "mongo": "fab fa-envira",
+      "git": "fab fa-git-alt",
+      "java": "fab fa-java",
+      "python": "fab fa-python"
+    }
+  }
+]

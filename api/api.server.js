@@ -4,12 +4,14 @@ const dotenv = require('dotenv');
 const {DataBase} = require('./model');
 const Lesson = require('./lessons');
 const Introduce = require('./introduce');
+const icons = require('./icons.json')
 
 dotenv.config({path: "../.env"});
 const port = process.env.API_PORT;
 const host = process.env.HOST;
 const URI = process.env.MONGO_URI;
 const app = express();
+
 /*
 createLesson(
   "/url",
@@ -25,18 +27,26 @@ Introduce.Data({})
     console.log(result)
   })
 
-Introduce.Create("Salam men Vugar Safarzada", "picture2.jpg")
-
 */
+/*
+Introduce.Update({
+  eduction_skills: {
 
-app.use("/api/introduce", (req, res)=>{
+  }
+})*/
+
+app.use("/api/introduce", (req, res) => {
   Introduce.Data({__id: process.env.ADMIN})
     .then(function (result) {
       res.json(result)
     })
 })
 
-app.use("/api/auth/:id", (req, res) => {
+app.use("/api/icons", (req, res) => {
+  res.json(icons);
+})
+
+/*app.use("/api/auth/:id", (req, res) => {
   switch (req.params.id) {
     case "admin":
       res.json(data);
@@ -47,7 +57,7 @@ app.use("/api/auth/:id", (req, res) => {
     default:
       res.send({message: "Error!"})
   }
-});
+});*/
 
 app.use("/api/content/:id", (req, res) => {
   console.log(req.path)

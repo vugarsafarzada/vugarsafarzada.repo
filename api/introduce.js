@@ -6,18 +6,30 @@ let SchemaSettings = new Schema({
   description1: String,
   description2: String,
   picture: String,
+  programming_skills: Object,
+  eduction_skills: Object,
 });
 
-const Create = (description, picture, description1, description2) =>
+const Create = (description, picture, description1, description2, programming_skills, eduction_skills) =>
 {
   Introduce.create({
     description,
     description1,
     description2,
     picture,
+    programming_skills,
+    eduction_skills,
   }, (err, result) => {
     if (err) throw err;
     console.log(`>> INTRODUCE DATA ADD TO DATABASE`);
+  });
+}
+
+const Update = (update) =>
+{
+  Introduce.findByIdAndUpdate(process.env.ADMIN, update, (err, result) => {
+    if (err) throw err;
+    console.log(`>> UPDATED DATABASE`);
   });
 }
 
@@ -34,4 +46,4 @@ let Data = async (query) => {
 
 let Introduce = mongoose.model('Introduce', SchemaSettings);
 
-module.exports = {Introduce, Data, Create};
+module.exports = {Introduce, Data, Update, Create};
