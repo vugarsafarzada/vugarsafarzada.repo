@@ -6,7 +6,7 @@
         <Sidebar
           :title="articles.name"
           :path="articles.path"
-          :icon="articles.icon"
+          :icon="icons.articles"
           :data="articles.data"
           class="color1"/>
       </div>
@@ -21,6 +21,10 @@
 <script>
   export default {
     name: "_article",
+    async fetch() {
+      let icons = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/icons`).then(res => res.json())
+      this.icons = icons[0];
+    },
     methods: {
       detectPageId: function () {
         this.page_id = this.$nuxt._route.params.article;
@@ -30,10 +34,10 @@
     data() {
       return {
         page_id: '',
+        icons:{},
         articles: {
           name: "Digər məqalələr",
           path: "articles",
-          icon: "bi bi-file-earmark-text-fill",
           data: [
             "Niyə Vue daha yaxşıdı?",
             "React yoxsa Angular",

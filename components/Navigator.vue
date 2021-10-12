@@ -2,24 +2,34 @@
   <div class="navigator">
     <ul>
       <li>
-        <a href="/" class="nav-link"><i class="bi bi-house-fill"/> Ana səhifə</a>
+        <a href="/" class="nav-link"><i :class="icons.home"/> Ana Səhifə</a>
       </li>
       <li>
-        <a href="/" class="nav-link"><i class="bi bi-journal-code"/> Dərslər</a>
+        <a href="/" class="nav-link"><i :class="icons.lessons"/> Dərslər</a>
       </li>
       <li>
-        <a href="/" class="nav-link"><i class="bi bi-file-earmark-text-fill"/> Məqalələr</a>
+        <a href="/" class="nav-link"><i :class="icons.articles"/> Məqalələr</a>
       </li>
       <li>
-        <a href="/" class="nav-link"><i class="bi bi-file-earmark-person-fill"/> CV</a>
+        <a href="/" class="nav-link"><i :class="icons.cv"/> CV</a>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+
   export default {
     name: "Navigator",
+    async fetch() {
+      let icons = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/icons`).then(res => res.json())
+      this.icons = icons[0];
+    },
+    data() {
+      return {
+        icons: {}
+      }
+    }
   };
 </script>
 

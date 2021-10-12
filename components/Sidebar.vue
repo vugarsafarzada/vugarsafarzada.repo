@@ -25,13 +25,13 @@
     },
     methods: {
       convert_url: function (path, link) {
-        var link1 = link?.split(" ").join("_");
+        let link1 = link?.split(" ").join("_");
         return `/${path}/${this.convertString(link1)}`
       },
       convertString: function (phrase) {
-        var maxLength = 50;
+        let maxLength = 50;
 
-        var returnString = phrase.toLowerCase();
+        let returnString = phrase.toLowerCase();
         //Convert Characters
         returnString = returnString.replace(/ö/g, 'o');
         returnString = returnString.replace(/ç/g, 'c');

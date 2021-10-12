@@ -2,18 +2,18 @@
   <div class="main">
     <Header class="bg2 color1 Header"/>
     <div class="main-body">
-      <Main :data="introduce" class="bg4 color1 shadow"/>
+      <Main :data="introduce" :icons="icons" class="bg4 color1 shadow"/>
       <div class="sidebar-box">
         <Sidebar
           :title="lessons.name"
           :path="lessons.path"
           :data="lessons.data"
-          :icon="lessons.icon"
+          :icon="icons.lessons"
           class="color1"/>
         <Sidebar
           :title="articles.name"
           :path="articles.path"
-          :icon="articles.icon"
+          :icon="icons.articles"
           :data="articles.data"
           class="color1"/>
       </div>
@@ -28,14 +28,17 @@
     async fetch() {
       let Data = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/introduce`).then(res => res.json())
       this.introduce = Data.data[0];
+      let icons = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/icons`).then(res => res.json())
+      this.icons = icons[0];
     },
+
     data() {
       return {
         introduce:{},
+        icons: {},
         articles: {
           name: "Məqalələr",
           path: "articles",
-          icon: "bi bi-file-earmark-text-fill",
           data: [
             "Niyə Vue daha yaxşıdı?",
             "React yoxsa Angular",
@@ -47,7 +50,6 @@
         lessons: {
           name: "Dərslər",
           path: "lessons",
-          icon: "bi bi-journal-code",
           data: [
             "Java & Java EE",
             "Python OOP",
