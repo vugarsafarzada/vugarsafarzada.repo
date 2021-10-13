@@ -28,11 +28,24 @@ Introduce.Data({})
   })
 
 */
-/*
-Introduce.Update({
-  eduction_skills: {
 
-  }
+/*Introduce.Update({
+  experience: [
+    {
+      company_name: "Positive MMC",
+      company_url: "https://positive.com.az/",
+      title: "Front-End Developer",
+      date: new Date(2021, 8, 16),
+      location: "Baku, Azerbaijan",
+      project: [
+        {
+          name: "Development of Note.az",
+          date: new Date(2021, 8, 16),
+          description: ""
+        }
+      ]
+    },
+  ]
 })*/
 
 app.use("/api/introduce", (req, res) => {

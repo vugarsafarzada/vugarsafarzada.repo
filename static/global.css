@@ -67,6 +67,14 @@ body {
   color: #d0e1f9;
 }
 
+.color4 {
+  color: #fff;
+}
+
+.color5 {
+  color: #E9ECEF;
+}
+
 .bg0 {
   background-color: #1e1f26;
 }
@@ -85,6 +93,10 @@ body {
 
 .bg4 {
   background-color: #fff;
+}
+
+.bg5 {
+  background-color: #E9ECEF;
 }
 
 .blurEffect{

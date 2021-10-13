@@ -8,9 +8,13 @@ let SchemaSettings = new Schema({
   picture: String,
   programming_skills: Object,
   eduction_skills: Object,
+  experience: Object,
+  phone: Array,
+  social: Object,
+  email: String
 });
 
-const Create = (description, picture, description1, description2, programming_skills, eduction_skills) =>
+const Create = (description, picture, description1, description2, programming_skills, eduction_skills, experience, phone, email, social) =>
 {
   Introduce.create({
     description,
@@ -19,6 +23,10 @@ const Create = (description, picture, description1, description2, programming_sk
     picture,
     programming_skills,
     eduction_skills,
+    experience,
+    phone,
+    email,
+    social,
   }, (err, result) => {
     if (err) throw err;
     console.log(`>> INTRODUCE DATA ADD TO DATABASE`);
