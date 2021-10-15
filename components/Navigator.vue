@@ -2,16 +2,19 @@
   <div class="navigator">
     <ul>
       <li>
-        <a href="/" class="nav-link"><i :class="icons.home"/> Ana Səhifə</a>
+        <a href="/" class="nav-link"><i :class="icons.home"/> Home</a>
       </li>
       <li>
-        <a href="/" class="nav-link"><i :class="icons.lessons"/> Dərslər</a>
+        <a href="/beats" class="nav-link"><i :class="icons.music_list"/> My Beats</a>
       </li>
       <li>
-        <a href="/" class="nav-link"><i :class="icons.articles"/> Məqalələr</a>
+        <a href="/about" class="nav-link"><i :class="icons.info"/> About me</a>
       </li>
       <li>
-        <a href="/" class="nav-link"><i :class="icons.cv"/> CV</a>
+        <a href="/" class="nav-link"><i :class="icons.lessons"/> Lessons</a>
+      </li>
+      <li>
+        <a href="/Resume.pdf" class="nav-link" download=""><i :class="icons.cv"/>  Resume</a>
       </li>
     </ul>
   </div>
@@ -21,6 +24,7 @@
 
   export default {
     name: "Navigator",
+    props: ["data"],
     async fetch() {
       let icons = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/icons`).then(res => res.json())
       this.icons = icons[0];

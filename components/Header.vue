@@ -13,7 +13,7 @@
         </a>
       </div>
     </div>
-    <Navigator/>
+    <Navigator :data="data"/>
   </div>
 </template>
 
@@ -21,6 +21,7 @@
   import Navigator from "./Navigator";
 
   export default {
+    props: ["data"],
     components: {Navigator},
   };
 </script>

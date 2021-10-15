@@ -1,9 +1,12 @@
 <template>
   <div class="sidebar bg4 shadow">
     <h3><i :class="icon" v-if="icon"/> {{title}}</h3>
+    <div>
+      <p></p>
+    </div>
     <ol>
       <li v-for="a in data" :key="a"><a v-bind:href="convert_url(`${path}`, a)">{{a}}</a></li>
-      <li>
+      <li v-if="path">
         <NuxtLink :to="'/' + path">more...</NuxtLink>
       </li>
     </ol>

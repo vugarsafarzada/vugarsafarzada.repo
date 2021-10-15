@@ -1,8 +1,12 @@
 <template>
   <div class="main">
-    <Header class="bg2 color1 Header"/>
+    <Header :data="introduce" class="bg2 color1 Header"/>
     <div class="main-body">
-      <Main :data="introduce" :icons="icons" class="bg4 color1 shadow"/>
+      <Contents
+        :data="introduce"
+        :icons="icons"
+        :carousel="introduce"
+        class=""/>
       <div class="sidebar-box">
         <Sidebar
           :title="lessons.name"
@@ -56,6 +60,16 @@
             "ReactJS & NextJS",
             "Vue Vuex and NuxtJS",
             "MongoDB & Mongoose",
+            "Java & Java EE",
+            "Python OOP",
+            "ReactJS & NextJS",
+            "Vue Vuex and NuxtJS",
+            "MongoDB & Mongoose",
+            "Java & Java EE",
+            "Python OOP",
+            "ReactJS & NextJS",
+            "Vue Vuex and NuxtJS",
+            "MongoDB & Mongoose",
             "CSS & SCSS"
           ],
         }
@@ -65,5 +79,9 @@
 </script>
 
 <style>
+  .content{
+    width: 1000px !important;
+    padding: 50px;
+  }
 
 </style>

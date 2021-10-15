@@ -1,16 +1,56 @@
 const express = require('express');
 const dotenv = require('dotenv');
 
+const router = express.Router();
+const beats_router = require('./router/beats_router');
+const icons_router = require('./router/icons_router');
+const intro_router = require('./router/intro_router');
+
 const {DataBase} = require('./model');
 const Lesson = require('./lessons');
 const Introduce = require('./introduce');
-const icons = require('./icons.json')
+const Beats = require('./beats');
 
 dotenv.config({path: "../.env"});
 const port = process.env.API_PORT;
 const host = process.env.HOST;
 const URI = process.env.MONGO_URI;
 const app = express();
+
+//INTRODUCE API
+app.use("/api/introduce", intro_router)
+
+//BEATS API
+app.use("/api/beats/", beats_router);
+
+//ICONS API
+app.use("/api/icons", icons_router);
+
+
+app.use("/api/content/:id", (req, res) => {
+  console.log(req.path)
+  const page_query = req.path.split("/")[1]
+  Lesson.Find({lesson_title: page_query}).then(function (result) {
+    switch (req.params.id) {
+      case "articles":
+        res.json(result);
+        break;
+      case "lessons":
+        res.json(result);
+        break;
+      case "main_menu":
+        res.json(result);
+        break;
+      default:
+        res.send({message: "Error!"})
+    }
+
+  });
+});
+
+app.listen(port, () => {
+  console.log(`>> API IN RUNNING ON http://${host}:${port}/api`)
+})
 
 /*
 createLesson(
@@ -47,52 +87,3 @@ Introduce.Data({})
     },
   ]
 })*/
-
-app.use("/api/introduce", (req, res) => {
-  Introduce.Data({__id: process.env.ADMIN})
-    .then(function (result) {
-      res.json(result)
-    })
-})
-
-app.use("/api/icons", (req, res) => {
-  res.json(icons);
-})
-
-/*app.use("/api/auth/:id", (req, res) => {
-  switch (req.params.id) {
-    case "admin":
-      res.json(data);
-      break;
-    case "auth":
-      res.json(data);
-      break;
-    default:
-      res.send({message: "Error!"})
-  }
-});*/
-
-app.use("/api/content/:id", (req, res) => {
-  console.log(req.path)
-  const page_query = req.path.split("/")[1]
-  Lesson.Find({lesson_title: page_query}).then(function (result) {
-    switch (req.params.id) {
-      case "articles":
-        res.json(result);
-        break;
-      case "lessons":
-        res.json(result);
-        break;
-      case "main_menu":
-        res.json(result);
-        break;
-      default:
-        res.send({message: "Error!"})
-    }
-
-  });
-});
-
-app.listen(port, () => {
-  console.log(`>> API IN RUNNING ON http://${host}:${port}/api`)
-})
