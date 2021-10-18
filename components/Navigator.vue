@@ -14,7 +14,7 @@
         <a href="/" class="nav-link"><i :class="icons.lessons"/> Lessons</a>
       </li>
       <li>
-        <a href="/Resume.pdf" class="nav-link" download=""><i :class="icons.cv"/>  Resume</a>
+        <a href="/Resume.pdf" class="nav-link"><i :class="icons.cv"/>  Resume</a>
       </li>
     </ul>
   </div>

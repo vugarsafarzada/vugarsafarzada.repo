@@ -1,14 +1,14 @@
 <template>
-  <div class="carousel-box ">
-    <VueSlickCarousel :autoplay="true" :arrows="true" :dots="true">
-      <div class="bg5 carousel-items">
-        <h2>Vüqar Kimdi?</h2>
-      </div>
-      <div class="bg5 carousel-items">
-        <h2>Ən yeni məqalələr:</h2>
-      </div>
-      <div class="bg5 carousel-items">
-        <h2>Proqramlaşdırma dərsləri:</h2>
+  <div v-show="data.carousel.active" class="carousel-box">
+    <VueSlickCarousel
+      :autoplay="data.carousel.settings.autoplay"
+      :autoplaySpeed="data.carousel.settings.autoplaySpeed*1000"
+      :arrows="data.carousel.settings.arrows"
+      :dots="data.carousel.settings.dots">
+      <div v-for="page in data.carousel.pages" class="bg5 carousel-items">
+        <div v-if="page">
+          <components :is="page" :data="data.carousel"/>
+        </div>
       </div>
     </VueSlickCarousel>
   </div>
@@ -21,22 +21,20 @@
 
   export default {
     components: {VueSlickCarousel},
-    name: "Carousel"
+    name: "Carousel",
+    props: ["icons", "data"]
   }
 </script>
 
 <style>
-  .carousel-box{
+  .carousel-box {
     width: 99%;
     margin-bottom: 50px;
   }
 
-  .carousel-box .carousel-items{
+  .carousel-box .carousel-items {
     width: 500px;
     height: 500px;
-    padding: 20px;
-    font-style: italic;
-
+    padding: 10px;
   }
-
 </style>

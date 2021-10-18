@@ -34,8 +34,8 @@ const Create = (
   });
 }
 
-const Update = (update) => {
-  Beats.findByIdAndUpdate(process.env.ADMIN, update, (err, result) => {
+const Update = (id, update) => {
+  Beats.findByIdAndUpdate(id, update, (err, result) => {
     if (err) throw err;
     console.log(`>> UPDATED DATABASE`);
   });

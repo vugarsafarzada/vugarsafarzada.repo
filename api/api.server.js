@@ -5,8 +5,9 @@ const router = express.Router();
 const beats_router = require('./router/beats_router');
 const icons_router = require('./router/icons_router');
 const intro_router = require('./router/intro_router');
+const content_router = require('./router/content_router');
 
-const {DataBase} = require('./model');
+const { DataBase } = require('./model');
 const Lesson = require('./lessons');
 const Introduce = require('./introduce');
 const Beats = require('./beats');
@@ -25,6 +26,9 @@ app.use("/api/beats/", beats_router);
 
 //ICONS API
 app.use("/api/icons", icons_router);
+
+//CONTENT API
+app.use("/api/content", content_router);
 
 
 app.use("/api/content/:id", (req, res) => {

@@ -10,7 +10,10 @@
           <i :class="icons.music_note"/>
         </span>
         <h3>"{{b.title}}"</h3>
-        <h5>Vugar Beats</h5>
+        <h5>Vugar Beats
+          <br>
+          <span class="fs-6 text-secondary">( {{b.date}} )</span>
+        </h5>
         <dt>
           <h6><i :class="icons.disc"/> Parça: #{{b.beat_key}}</h6>
         </dt>

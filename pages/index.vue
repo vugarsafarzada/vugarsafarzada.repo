@@ -3,10 +3,7 @@
     <Header :data="introduce" class="bg2 color1 Header"/>
     <div class="main-body">
       <Contents
-        :data="introduce"
-        :icons="icons"
-        :carousel="introduce"
-        class=""/>
+        :icons="icons"/>
       <div class="sidebar-box">
         <Sidebar
           :title="lessons.name"
@@ -21,7 +18,6 @@
           :data="articles.data"
           class="color1"/>
       </div>
-
     </div>
     <Footer class="bg1 color3 footer"/>
   </div>
@@ -35,7 +31,6 @@
       let icons = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/icons`).then(res => res.json())
       this.icons = icons[0];
     },
-
     data() {
       return {
         introduce:{},
