@@ -33,6 +33,10 @@
     "music_note": "bi bi-music-note-beamed",
     "calendar": "bi bi-calendar-event",
     "folder": "bi bi-folder2-open",
+    "chat_text": "bi bi-chat-text",
+    "quote": "fas fa-quote-left",
+    "paperclip": "fas fa-paperclip",
+    "pen": "fas fa-pen",
     "emoji": {
       "angry": "bi bi-emoji-angry",
       "dizzy": "bi bi-emoji-dizzy",

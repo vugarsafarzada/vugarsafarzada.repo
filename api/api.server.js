@@ -6,11 +6,13 @@ const beats_router = require('./router/beats_router');
 const icons_router = require('./router/icons_router');
 const intro_router = require('./router/intro_router');
 const content_router = require('./router/content_router');
+const article_router = require('./router/article_router');
 
 const { DataBase } = require('./model');
 const Lesson = require('./lessons');
 const Introduce = require('./introduce');
 const Beats = require('./beats');
+const Articles = require('./articles');
 
 dotenv.config({path: "../.env"});
 const port = process.env.API_PORT;
@@ -29,6 +31,9 @@ app.use("/api/icons", icons_router);
 
 //CONTENT API
 app.use("/api/content", content_router);
+
+//ARTICLE API
+app.use("/api/articles", article_router)
 
 
 app.use("/api/content/:id", (req, res) => {

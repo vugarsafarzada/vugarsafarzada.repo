@@ -3,7 +3,9 @@
     <Header :data="introduce" class="bg2 color1 Header"/>
     <div class="main-body">
       <Contents
-        :icons="icons"/>
+        :icons="icons"
+        :path="path"
+      />
       <div class="sidebar-box">
         <Sidebar
           :title="lessons.name"
@@ -35,6 +37,7 @@
       return {
         introduce:{},
         icons: {},
+        path:"main",
         articles: {
           name: "Məqalələr",
           path: "articles",
