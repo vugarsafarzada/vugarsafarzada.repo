@@ -132,6 +132,14 @@
   .carousel-items
   .carousel-info
   .info-box
+  ul li i {
+
+  }
+
+  .carousel-box
+  .carousel-items
+  .carousel-info
+  .info-box
   ul li a:hover {
     color: #4b85e3;
   }

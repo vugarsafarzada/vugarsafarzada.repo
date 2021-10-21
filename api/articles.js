@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const encodeToUrl = require('./encodeToUrl');
 let Schema = mongoose.Schema;
 
 let SchemaSettings = new Schema({
@@ -6,19 +7,23 @@ let SchemaSettings = new Schema({
   content: String,
   date: String,
   picture: Array,
+  url: String
 });
 
 const Create = (
   title,
   content,
   date,
-  picture
+  picture,
 ) => {
+
+  const urlConverted = encodeToUrl.convertString(`${title}`);
   Articles.create({
     title,
     content,
     date,
-    picture
+    picture,
+    url: urlConverted,
   }, (err, result) => {
     if (err) throw err;
     console.log(`>> DATA ADD TO DATABASE`);

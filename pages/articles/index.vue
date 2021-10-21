@@ -12,7 +12,6 @@
       </div>
       <Contents
         :path="path"
-        :page="page_id"
         :icons="icons"
         class="bg4 color1 shadow"/>
     </div>
@@ -29,9 +28,8 @@
     },
     data() {
       return {
-        page_id: this.$nuxt._route.params.article,
         icons:{},
-        path: "article_view",
+        path: "articles",
         articles: {
           name: "Digər məqalələr",
           data: [
@@ -44,7 +42,6 @@
         },
       }
     },
-
   }
 </script>
 

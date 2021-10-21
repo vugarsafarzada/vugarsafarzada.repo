@@ -1,7 +1,13 @@
 <template>
-  <div class="content bg4 color1 shadow">
-    <div v-for="c in data.content_data.components" :key="c">
-      <components class="pb-3" :icons="icons" :data="data.content_data" :is="c"/>
+  <div class="content bg4 color1 shadow" v-if="data">
+    <div v-for="component in data.content_data.components" :key="c">
+      <components
+        class="pb-3"
+        :page="page"
+        :icons="icons"
+        :data="data.content_data"
+        :is="component"
+      />
     </div>
   </div>
 </template>
@@ -14,7 +20,7 @@
       this.data = content.data[0];
     },
     name: "Content",
-    props: ["icons", "path"],
+    props: ["icons", "path", "page"],
     data() {
       return {
         data: {},

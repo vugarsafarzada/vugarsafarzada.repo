@@ -1,9 +1,9 @@
 <template>
-  <div v-show="data.youtube">
+  <div v-show="data.embed">
     <iframe
       width="871"
       height="480"
-      :src="data.youtube"
+      :src="data.embed"
       title="YouTube video player"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
