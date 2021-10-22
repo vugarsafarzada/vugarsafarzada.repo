@@ -7,7 +7,11 @@ let SchemaSettings = new Schema({
   content: String,
   date: String,
   picture: Array,
-  url: String
+  pictureSettings: Object,
+  url: String,
+  author: Array,
+  resources: Array,
+  video: String
 });
 
 const Create = (
@@ -15,6 +19,10 @@ const Create = (
   content,
   date,
   picture,
+  pictureSettings,
+  author,
+  resources,
+  video,
 ) => {
 
   const urlConverted = encodeToUrl.convertString(`${title}`);
@@ -23,6 +31,10 @@ const Create = (
     content,
     date,
     picture,
+    pictureSettings,
+    author,
+    resources,
+    video,
     url: urlConverted,
   }, (err, result) => {
     if (err) throw err;

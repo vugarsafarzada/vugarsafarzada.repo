@@ -4,10 +4,17 @@ const article_router = express.Router();
 
 article_router.post('/', (req, res) => {
   Articles.Create(
-    "Kotlin Break Continue ve Label",
-    "Break continue genel olarak tüm yazılım dillerinde olan bir komuttur ve döngü içinde belli koşullarda döngüden çıkmaya ve ya döngüde belli kosullar da bir step atlamaya yarar. Yani belli bir koşulda döngüyü tamamen sonlandırabilir ve ya o adımı atlayıp bir sonraki adımdan devam etmemize yarar. Break komutu döngüyü tamamen sonlandırmak için kullanılır. Yani bir döngü çalışırken break komutu ile karşılaşırsa ondan sonra gelen kodları çalıştırmaz ve döngüyü sonlandırır. Nasıl olduğunu aşağıdaki kodda daha iyi anlayacağınızı düşünüyorum.Break komutunu nerde kullanabiliriz diyorsanız basit bir örnek vereyim. Elinizde uzunluğu 100 olan bir array var ve içinde 1 den 100 e kadar olan sayılar sırasız bir şekilde dizilmiş. İçinde 50 yi bulmaya çalışıyorsunuz. Bulduğunuz an artık daha döngünün dönmesine gerek yok. Bu durumda break komutu ile döngüden çıkıyorsunuz.",
+    "Why do we use it?",
+    "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). ~$br~ It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). ~$br~ Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.",
     `${new Date()}`,
-    "mascot-kotlin_androidhead.png",
+    ["giphy1.gif", "giphy2.gif"],
+    {
+      width: 400,
+      height: 400,
+    },
+    ["Vüqar Səfərzadə", "Lorem impsom", "For example text"],
+    ["vugarsafarzada.com", "example.com"],
+    "https://www.youtube.com/watch?v=vMsA4BmhKTk",
   );
   res.json({message: "Successful"});
 });
