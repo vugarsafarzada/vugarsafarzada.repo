@@ -9,15 +9,13 @@
     <div class="article_content">
       <div v-if="data.video" class="article_video">
         <Iframe
-          width="700"
-          height="400"
           :src="data.video"
         />
       </div>
       <br>
       <div v-for="(p, index) in data.content.split('~$br~')" class="article_content_text">
         <article>
-          {{p}}
+          <TextEditor :text="p"/>
         </article>
         <br>
         <div v-if="data.picture[index]" class="article_img">

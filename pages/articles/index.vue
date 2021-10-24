@@ -2,14 +2,6 @@
   <div class="main">
     <Header class="bg2 color1 Header"/>
     <div class="main-body">
-      <div class="sidebar-box">
-        <Sidebar
-          :title="articles.name"
-          :path="articles.path"
-          :icon="icons.articles"
-          :data="articles.data"
-          class="color1"/>
-      </div>
       <Contents
         :path="path"
         :icons="icons"
@@ -31,14 +23,6 @@
         icons:{},
         path: "articles",
         articles: {
-          name: "Digər məqalələr",
-          data: [
-            "Niyə Vue daha yaxşıdı?",
-            "React yoxsa Angular",
-            "C dilləri öldümü?",
-            "Texnologiya və Kompüter",
-            "İlk proqramlaşdırma dilləri"
-          ]
         },
       }
     },
@@ -47,7 +31,10 @@
 
 <style>
   .content{
-    width: 1000px !important;
-    padding: 50px;
+    width: 1200px;
+    padding: 30px;
+  }
+  .main-body{
+    border-top: 1.5px dashed #4d648d;
   }
 </style>

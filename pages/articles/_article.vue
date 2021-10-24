@@ -2,13 +2,14 @@
   <div class="main">
     <Header class="bg2 color1 Header"/>
     <div class="main-body">
-      <div class="sidebar-box">
+      <div v-for="s in sidebar" class="sidebar-box">
         <Sidebar
-          :title="articles.name"
-          :path="articles.path"
-          :icon="icons.articles"
-          :data="articles.data"
-          class="color1"/>
+          :icons="icons"
+          :path="s.path"
+          :title="s.title"
+          :check="page_id"
+          class="color1"
+        />
       </div>
       <Contents
         :path="path"
@@ -26,22 +27,21 @@
     async fetch() {
       let icons = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/icons`).then(res => res.json())
       this.icons = icons[0];
+      let articles = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/articles/`)
+        .then(res => res.json())
+      this.articles.data = articles.data.reverse();
     },
     data() {
       return {
         page_id: this.$nuxt._route.params.article,
         icons:{},
         path: "article_view",
-        articles: {
-          name: "Digər məqalələr",
-          data: [
-            "Niyə Vue daha yaxşıdı?",
-            "React yoxsa Angular",
-            "C dilləri öldümü?",
-            "Texnologiya və Kompüter",
-            "İlk proqramlaşdırma dilləri"
-          ]
-        },
+        sidebar: [
+          {
+            path: "articles",
+            title: "Məqalələrim"
+          },
+        ]
       }
     },
 

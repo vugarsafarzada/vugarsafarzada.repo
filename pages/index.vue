@@ -6,19 +6,13 @@
         :icons="icons"
         :path="path"
       />
-      <div class="sidebar-box">
+      <div v-for="s in sidebar" class="sidebar-box">
         <Sidebar
-          :title="lessons.name"
-          :path="lessons.path"
-          :data="lessons.data"
-          :icon="icons.lessons"
-          class="color1"/>
-        <Sidebar
-          :title="articles.name"
-          :path="articles.path"
-          :icon="icons.articles"
-          :data="articles.data"
-          class="color1"/>
+          :icons="icons"
+          :path="s.path"
+          :title="s.title"
+          class="color1"
+        />
       </div>
     </div>
     <Footer class="bg1 color3 footer"/>
@@ -35,49 +29,22 @@
     },
     data() {
       return {
-        introduce:{},
+        introduce: {},
         icons: {},
-        path:"main",
-        articles: {
-          name: "Məqalələr",
-          path: "articles",
-          data: [
-            "Niyə Vue daha yaxşıdı?",
-            "React yoxsa Angular",
-            "C dilləri öldümü?",
-            "Texnologiya və Kompüter",
-            "İlk proqramlaşdırma dilləri"
-          ]
-        },
-        lessons: {
-          name: "Dərslər",
-          path: "lessons",
-          data: [
-            "Java & Java EE",
-            "Python OOP",
-            "ReactJS & NextJS",
-            "Vue Vuex and NuxtJS",
-            "MongoDB & Mongoose",
-            "Java & Java EE",
-            "Python OOP",
-            "ReactJS & NextJS",
-            "Vue Vuex and NuxtJS",
-            "MongoDB & Mongoose",
-            "Java & Java EE",
-            "Python OOP",
-            "ReactJS & NextJS",
-            "Vue Vuex and NuxtJS",
-            "MongoDB & Mongoose",
-            "CSS & SCSS"
-          ],
-        }
+        path: "main",
+        sidebar: [
+          {
+            path: "articles",
+            title: "Məqalələrim"
+          },
+        ]
       };
     },
   };
 </script>
 
 <style>
-  .content{
+  .content {
     width: 1000px !important;
     padding: 50px;
   }
