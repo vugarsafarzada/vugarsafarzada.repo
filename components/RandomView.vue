@@ -1,14 +1,15 @@
 <template>
-  <div>
+  <div v-if="path && comp">
     <div v-for="r in randomNums.slice(0, 2)" :key="r">
-      <div class="main-body-box" :key="articles[r].url">
-        <ArticleBox
+      <div class="main-body-box" :key="data[r].url">
+        <component
           :icons="icons"
-          :title="articles[r].title"
-          :content="articles[r].content"
-          :picture="articles[r].picture"
-          :date="articles[r].date"
-          :url="articles[r].url"
+          :title="data[r].title"
+          :content="data[r].content"
+          :picture="data[r].picture"
+          :date="data[r].date"
+          :url="data[r].url"
+          :is="comp"
         />
       </div>
     </div>
@@ -18,16 +19,16 @@
 <script>
   export default {
     name: "RandomView",
-    props: ["path", "icons"],
+    props: ["path", "icons", "comp"],
     async fetch() {
       let content = await fetch(`http://${process.env.HOST}:${process.env.API_PORT}/api/${this.path}`)
         .then(res => res.json())
-      this.articles = content.data;
+      this.data = content.data;
       this.compNums(content.data.length)
     },
     data() {
       return {
-        articles: {},
+        data: {},
         num: [],
         randomNums: [],
       }

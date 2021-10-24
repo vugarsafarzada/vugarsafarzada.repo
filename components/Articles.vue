@@ -1,7 +1,7 @@
 <template>
   <div class="articles" v-if="articles">
     <div v-if="data.random_article">
-      <RandomView :icons="icons" :path="`articles`"/>
+      <RandomView :comp="`ArticleBox`" :icons="icons" :path="`articles`"/>
     </div>
     <div v-else>
       <div class="main-body-box" v-for="article in articles.slice(0, 5)" :key="article.url">
