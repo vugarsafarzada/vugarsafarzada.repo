@@ -50,7 +50,7 @@
 
 <style>
   .content{
-    width: 1000px !important;
+    width: 1000px;
     padding: 50px;
   }
 </style>

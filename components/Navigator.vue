@@ -11,7 +11,7 @@
         <a href="/about" class="nav-link"><i :class="icons.info"/> About me</a>
       </li>
       <li>
-        <a href="/" class="nav-link"><i :class="icons.lessons"/> Lessons</a>
+        <a href="/" class="nav-link disabled" ><i :class="icons.lessons"/> Lessons</a>
       </li>
       <li>
         <a href="/Resume.pdf" class="nav-link"><i :class="icons.cv"/>  Resume</a>

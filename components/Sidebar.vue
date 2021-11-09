@@ -39,7 +39,7 @@
 
 <style>
   .sidebar-box {
-    width: 350px;
+    width: 370px;
     height: 100%;
   }
 

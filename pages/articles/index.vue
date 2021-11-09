@@ -29,7 +29,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .content{
     width: 1200px;
     padding: 30px;

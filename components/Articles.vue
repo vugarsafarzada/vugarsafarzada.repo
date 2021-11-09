@@ -4,7 +4,7 @@
       <RandomView :comp="`ArticleBox`" :icons="icons" :path="`articles`"/>
     </div>
     <div v-else>
-      <div class="main-body-box" v-for="article in articles.slice(0, 5)" :key="article.url">
+      <div class="main-body-box" v-for="article in articles" :key="article.url">
         <ArticleBox
           :icons="icons"
           :title="article.title"

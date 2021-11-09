@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 
 const router = express.Router();
+const auth_router = require('./router/auth_router')
 const beats_router = require('./router/beats_router');
 const icons_router = require('./router/icons_router');
 const intro_router = require('./router/intro_router');
@@ -33,7 +34,10 @@ app.use("/api/icons", icons_router);
 app.use("/api/content", content_router);
 
 //ARTICLE API
-app.use("/api/articles", article_router)
+app.use("/api/articles", article_router);
+
+//AUTH API
+app.use("/api/auth", auth_router);
 
 
 app.use("/api/content/:id", (req, res) => {
