@@ -2,18 +2,22 @@
   font-family: "Inconsolata";
   src: url("../static/fonts/Inconsolata-VariableFont_wdth,wght.ttf");
 }
+
 @font-face {
   font-family: "BalsamiqSans";
   src: url("../static/fonts/BalsamiqSans-Regular.ttf");
 }
+
 @font-face {
   font-family: "Caveat";
   src: url("../static/fonts/Caveat-VariableFont_wght.ttf");
 }
+
 @font-face {
   font-family: "ChakraPetch";
   src: url("../static/fonts/ChakraPetch-Medium.ttf");
 }
+
 @font-face {
   font-family: "Audiowide";
   src: url("../static/fonts/Audiowide-Regular.ttf");
@@ -21,8 +25,7 @@
 
 
 body {
-  background: #d0e1f9;
-  color: #283655;
+  background: var(--color0);
   margin: 0 auto;
   padding: 0;
   font-family: "ChakraPetch", serif;
@@ -32,6 +35,15 @@ body {
   -ms-user-select: none;
   user-select: none;
   -o-user-select: none;
+}
+
+a {
+  color: var(--color5);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color4);
 }
 
 .footer {
@@ -51,61 +63,22 @@ body {
 }
 
 /* Default Color Settings */
-.color0 {
-  color: #1e1f26;
-}
-
-.color1 {
-  color: #283655;
-}
-
-.color2 {
-  color: #4d648d;
-}
-
-.color3 {
-  color: #d0e1f9;
-}
-
-.color4 {
-  color: #fff;
-}
-
-.color5 {
-  color: #E9ECEF;
-}
-.color6 {
-  color: #F1F3F4;
-}
-
-.bg0 {
-  background-color: #1e1f26;
-}
-
-.bg1 {
-  background-color: #283655;
-}
-
-.bg2 {
-  background-color: #4d648d;
-}
-
-.bg3 {
-  background-color: #d0e1f9;
-}
-
-.bg4 {
-  background-color: #fff;
-}
-
-.bg5 {
-  background-color: #E9ECEF;
-}
-.bg6 {
-  background-color: #F1F3F4;
-}
-
-.blurEffect{
-  -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+.blurEffect {
+  -webkit-filter: blur(5px);
+  /* Safari 6.0 - 9.0 */
   filter: blur(5px);
+}
+
+
+/* #202124 #303134 #969BA1 #BCC0B9 */
+:root {
+  --color0: #1e1f21;
+  --color1: #202124;
+  --color2: #303134;
+  --color3: #525659;
+  --color4: #BCC0B9;
+  --color5: #f7df02;
+  --color6: #b8a600;
+  --color7: #7d752f;
+
 }

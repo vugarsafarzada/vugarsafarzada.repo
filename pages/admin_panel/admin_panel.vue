@@ -1,8 +1,6 @@
 <template>
     <div class="panel">
       <h2>Admin panel</h2>
-      <h6 v-if="userData">{{userData[0].title}}</h6>
-      <img v-if="userData" :src="userData[0].image" alt="">
     </div>
 </template>
 

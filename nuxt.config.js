@@ -1,22 +1,24 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'vugarsafarzada.com',
+    title: "vugarsafarzada.com",
     htmlAttrs: {
-      lang: 'en'
+      lang: "en"
     },
     meta: [
-      {charset: 'utf-8'},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
-      {hid: 'description', name: 'description', content: ''},
-      {name: 'format-detection', content: 'telephone=no'}
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" },
+      { name: "format-detection", content: "telephone=no" }
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico'},
+      { rel: "icon", type: "image/x-icon", href: "/images/favicon-dark.ico" },
       {
         rel: "stylesheet",
-        href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css",
-        integrity: "sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==",
+        href:
+          "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css",
+        integrity:
+          "sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==",
         crossorigin: "anonymous",
         referrerpolicy: "no-referrer"
       }
@@ -27,25 +29,43 @@ export default {
   css: [
     "~/node_modules/bootstrap/dist/css/bootstrap.min.css",
     "~/node_modules/bootstrap-icons/font/bootstrap-icons.css",
-    "~/static/global.css",
+    "~/static/global.css"
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    {src: "~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js", mode: "client"},
+    {
+      src: "~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+      mode: "client"
+    }
   ],
+
+  rules: {
+    // allow debugger during development
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "vue/no-use-v-if-with-v-for": "off"
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    '@nuxtjs/dotenv'
-  ],
+  buildModules: ["@nuxtjs/dotenv"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/axios"],
+  modules: ["@nuxtjs/axios", "@nuxtjs/proxy"],
+  axios: {
+    proxy: true
+  },
+
+  proxy: {
+    "http://localhost:3001/api/": {
+      target: "http://localhost:3001/api/",
+      pathRewrite: { "^/api/": "" },
+      changeOrigin: true
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}
-}
+};

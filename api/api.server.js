@@ -21,6 +21,7 @@ const host = process.env.HOST;
 const URI = process.env.MONGO_URI;
 const app = express();
 
+
 //INTRODUCE API
 app.use("/api/introduce", intro_router)
 
@@ -34,7 +35,7 @@ app.use("/api/icons", icons_router);
 app.use("/api/content", content_router);
 
 //ARTICLE API
-app.use("/api/articles", article_router);
+app.use("/api/articles",article_router);
 
 //AUTH API
 app.use("/api/auth", auth_router);
