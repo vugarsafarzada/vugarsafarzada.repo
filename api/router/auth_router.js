@@ -11,9 +11,9 @@ auth_router.get("/:email/:password/check", async (req, res) => {
   res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, X-Access-Token, X-Socket-ID, Content-Type");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
   Auth.Data({email: req.params.email, password: req.params.password})
-    .then(function (result) {
-      res.json(result);
-    });
+      .then(function (result) {
+        res.json(result);
+      });
 })
 
 auth_router.get("/:id/userId", async (req, res) => {
