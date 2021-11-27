@@ -1,9 +1,6 @@
 <template>
   <div class="admin-main">
-    <div v-if="control_center && user_id">
-      <component :is="'ControlCenter'"/>
-    </div>
-    <div v-else class="sign-in shadow">
+    <div v-if="sign_in" class="sign-in shadow">
       <h2>Admin panel</h2>
       <br/>
       <div v-if="errors.length" class="text-center pb-4">
@@ -42,8 +39,6 @@
 </template>
 
 <script>
-  const bcrypt = require("bcryptjs");
-  const jwt = require("jsonwebtoken");
   const methods = require("../../api/methods");
   export default {
     name: "index",
@@ -55,6 +50,7 @@
         user_id: null,
         errors: [],
         control_center: false,
+        sign_in: null,
       };
     },
     methods: {
@@ -76,6 +72,7 @@
         if (!this.validEmail(this.email)) {
           this.errors.push("Invalid e-mail format!");
         }
+
         e.preventDefault();
       },
       validEmail: function (email) {
@@ -86,22 +83,42 @@
 
       async checkAuth(email, password) {
         const getUser = await fetch(
-          `http://${process.env.HOST}:${process.env.API_PORT}/api/auth/${this.email}/${this.password}/check`
+          `http://${process.env.HOST}:${process.env.API_PORT}/api/auth/${email}/check`
         ).then((res) => res.json());
         if (getUser.data.length === 1) {
-          const getUserId = getUser.data[0]._id;
-          this.user_id = getUserId;
-          this.control_center = true;
-          methods.creatToken(getUserId)
-            .then(function (result) {
-              localStorage.setItem("token", result);
-            });
+          const getUserPassword = getUser.data[0]?.password;
+          if (methods.checkPassword(password, getUserPassword)) {
+            const getUserId = getUser.data[0]._id;
+            this.user_id = getUserId;
+            methods.creatToken(getUserId)
+              .then(function (result) {
+                localStorage.setItem("token", result);
+                if (methods.checkTokenIsExist()) {
+                  window.location.replace(`${window.location.pathname}/control_center`);
+                } else {
+                  this.sign_in = true
+                }
+              });
+          }else{
+            alert("E-mail or Password is incorrect!");
+            this.control_center = false;
+          }
         }
         if (getUser.data.length === 0) {
           alert("E-mail or Password is incorrect!");
           this.control_center = false;
         }
       },
+      checkLogin: function () {
+        if (methods.checkTokenIsExist()) {
+          window.location.replace(`${window.location.pathname}/control_center`);
+        } else {
+          this.sign_in = true
+        }
+      }
+    },
+    mounted() {
+      this.checkLogin();
     },
   };
 </script>

@@ -37,6 +37,7 @@
     "quote": "fas fa-quote-left",
     "paperclip": "fas fa-paperclip",
     "pen": "fas fa-pen",
+    "logout": "bi bi-box-arrow-left",
     "emoji": {
       "angry": "bi bi-emoji-angry",
       "dizzy": "bi bi-emoji-dizzy",

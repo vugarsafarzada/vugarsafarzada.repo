@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 const Methods = {
   creatToken: async function (userId) {
@@ -11,6 +12,27 @@ const Methods = {
 
   verifyToken: function (token) {
     return jwt.verify(token, process.env.ADMIN);
+  },
+
+  checkTokenIsExist: function () {
+    if (localStorage.getItem("token")) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
+  logOut: function () {
+    localStorage.removeItem("token");
+    window.location.reload(false);
+  },
+
+  hashPassword: function (password) {
+    return bcrypt.hashSync(password, 10);
+  },
+
+  checkPassword: function (password, hash) {
+    return bcrypt.compareSync(password, hash);
   }
 }
 

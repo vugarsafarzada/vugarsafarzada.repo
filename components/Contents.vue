@@ -1,6 +1,9 @@
 <template>
-  <div class="content shadow" v-if="data">
-    <div v-for="component in data.content_data.components" :key="component">
+  <div class="content shadow" v-if="data.content_data">
+    <div
+      v-for="(component, index) in data.content_data.components"
+      :key="index"
+    >
       <components
         class="pb-3"
         :page="page"
@@ -24,7 +27,7 @@ export default {
   props: ["icons", "path", "page"],
   data() {
     return {
-      data: {},
+      data: [],
     };
   },
 };
