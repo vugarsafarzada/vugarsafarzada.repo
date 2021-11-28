@@ -38,6 +38,8 @@
     "paperclip": "fas fa-paperclip",
     "pen": "fas fa-pen",
     "logout": "bi bi-box-arrow-left",
+    "layout" : "bi bi-layout-text-window-reverse",
+    "person": "bi bi-person-lines-fill",
     "emoji": {
       "angry": "bi bi-emoji-angry",
       "dizzy": "bi bi-emoji-dizzy",
