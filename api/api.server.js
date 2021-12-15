@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-
+let cors = require('cors');
 const router = express.Router();
 const auth_router = require('./router/auth_router')
 const beats_router = require('./router/beats_router');
@@ -21,7 +21,8 @@ const host = process.env.HOST;
 const URI = process.env.MONGO_URI;
 const app = express();
 
-
+app.use(express.json());
+app.use(cors());
 //INTRODUCE API
 app.use("/api/introduce", intro_router)
 

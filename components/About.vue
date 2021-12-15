@@ -61,16 +61,12 @@
       </div>
     </div>
     <div class="descriptions">
-      <hr />
-      <span class="fw-bold"><i :class="icons.angle" /> Who is Vugar?</span>
-      <p class="description">{{ data.description }}</p>
-      <hr />
-      <span class="fw-bold"><i :class="icons.angle" /> Software history:</span>
-      <p class="description">{{ data.description1 }}</p>
-      <hr />
-      <span class="fw-bold"><i :class="icons.angle" /> Business Life:</span>
-      <p class="description">{{ data.description2 }}</p>
-      <div class="programming-skills"></div>
+      <div v-for="desc in data.descriptions" :key="desc.title">
+        <hr />
+        <span class="fw-bold"><i :class="icons.angle" /> {{desc.title}}</span>
+        <p class="description">{{ desc.desc }}</p>
+      </div>
+
     </div>
     <h2 class="main-title"><i :class="icons.book" /> Eduction</h2>
     <div class="main-content-box container" v-if="data.eduction_skills">
@@ -239,7 +235,7 @@ export default {
       if (i === allicons.length) {
         i = 0;
       }
-    }, 1000);
+    }, 500);
   },
 };
 </script>

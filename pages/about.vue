@@ -22,7 +22,7 @@
 export default {
   async fetch() {
     let Data = await fetch(
-      `http://${process.env.HOST}:${process.env.API_PORT}/api/introduce`
+      `http://${process.env.HOST}:${process.env.API_PORT}/api/content/about_me`
     ).then((res) => res.json());
     this.introduce = Data.data[0];
     let icons = await fetch(

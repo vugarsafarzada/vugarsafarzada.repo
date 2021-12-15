@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const axios = require('axios');
 
 const Methods = {
   creatToken: async function (userId) {
@@ -33,6 +34,18 @@ const Methods = {
 
   checkPassword: function (password, hash) {
     return bcrypt.compareSync(password, hash);
+  },
+
+  postData: async function (to, data) {
+    delete data._id;
+    delete data.url;
+    const headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': "true",
+      "Access-Control-Allow-Headers": "X-Requested-With, X-Access-Token, X-Socket-ID, Content-Type",
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+    }
+    const res = await axios.post(`http://${process.env.HOST}:${process.env.API_PORT}/api/${to}/update`, data, {headers});
   }
 }
 

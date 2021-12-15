@@ -5,13 +5,21 @@ let SchemaSettings = new Schema({
   content_title: String,
   url: String,
   content_data: Object,
+  email: String,
+  picture: String,
+  descriptions: Array,
+  programming_skills: Array,
 });
 
-const Create = (content_title, url, content_data, ) => {
+const Create = (content_title, url, content_data, email, picture, descriptions, programming_skills) => {
   Content.create({
     content_title,
     url,
-    content_data
+    content_data,
+    email,
+    picture,
+    descriptions,
+    programming_skills
   }, (err, result) => {
     if (err) throw err;
     console.log(`>> NEW CONTENT ADDED TO DATABASE`);
@@ -29,13 +37,20 @@ let Data = async (query) => {
   return {data}
 }
 
-const Update = (content_id, update) => {
-  Content.findByIdAndUpdate(content_id, update, (err, result) => {
+const Update = async (query, update) => {
+  await Content.updateOne(query, update, (err, result) => {
     if (err) throw err;
     console.log(`>> UPDATED DATABASE`);
   });
+
+}
+
+const Update2 =  async (query, update) => {
+  const opts = { new: true, upsert: true };
+  await Content.findOneAndUpdate(query, {...update}, opts);
+  console.log(`>> UPDATED DATABASE`);
 }
 
 let Content = mongoose.model('Content', SchemaSettings);
 
-module.exports = {Content, Create, Data, Update};
+module.exports = {Content, Create, Data, Update2};

@@ -2,14 +2,12 @@ const express = require('express');
 const Content = require("../content");
 const content_router = express.Router();
 
-content_router.post("/update", (req, res) => {
-  Content.Update("6169e29d088bc5ba471c1d8d", {
-    content_title: "Main Page",
-    url: "/main",
-    content_data: {
-      carousel: false,
-    }
-  })
+content_router.post("/:id/update", (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, X-Access-Token, X-Socket-ID, Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
+    Content.Update2({url: `${req.params.id}`}, {...req.body})
   res.json({message: "successful"})
 })
 

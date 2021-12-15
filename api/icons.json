@@ -40,6 +40,11 @@
     "logout": "bi bi-box-arrow-left",
     "layout" : "bi bi-layout-text-window-reverse",
     "person": "bi bi-person-lines-fill",
+    "activity": "bi bi-clipboard-data",
+    "double-down": "bi bi-chevron-double-down",
+    "double-up": "bi bi-chevron-double-up",
+    "double-left": "bi bi-chevron-double-left",
+    "double-right": "bi bi-chevron-double-right",
     "emoji": {
       "angry": "bi bi-emoji-angry",
       "dizzy": "bi bi-emoji-dizzy",
