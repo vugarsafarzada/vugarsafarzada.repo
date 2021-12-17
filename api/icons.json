@@ -45,6 +45,12 @@
     "double-up": "bi bi-chevron-double-up",
     "double-left": "bi bi-chevron-double-left",
     "double-right": "bi bi-chevron-double-right",
+    "x-circle" : "bi bi-x-circle",
+    "x-circle-fill" : "bi bi-x-circle-fill",
+    "plus-circle-fill": "bi bi-plus-circle-fill",
+    "plus-circle": "bi bi-plus-circle",
+    "trash": "bi bi-trash",
+    "trash-fill": "bi bi-trash-fill",
     "emoji": {
       "angry": "bi bi-emoji-angry",
       "dizzy": "bi bi-emoji-dizzy",

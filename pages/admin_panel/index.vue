@@ -44,8 +44,8 @@
     name: "index",
     data() {
       return {
-        email: "vuqarsafarzada@gmail.com",
-        password: "azevuqar",
+        email: null,
+        password: null,
         data: null,
         user_id: null,
         errors: [],

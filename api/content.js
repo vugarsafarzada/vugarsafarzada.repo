@@ -9,9 +9,10 @@ let SchemaSettings = new Schema({
   picture: String,
   descriptions: Array,
   programming_skills: Array,
+  experience: Array,
 });
 
-const Create = (content_title, url, content_data, email, picture, descriptions, programming_skills) => {
+const Create = (content_title, url, content_data, email, picture, descriptions, programming_skills, experience) => {
   Content.create({
     content_title,
     url,
@@ -19,7 +20,8 @@ const Create = (content_title, url, content_data, email, picture, descriptions, 
     email,
     picture,
     descriptions,
-    programming_skills
+    programming_skills,
+    experience,
   }, (err, result) => {
     if (err) throw err;
     console.log(`>> NEW CONTENT ADDED TO DATABASE`);
@@ -30,11 +32,11 @@ const Create = (content_title, url, content_data, email, picture, descriptions, 
 let Data = async (query) => {
   let data = await Content.find(query, (err, result) => {
     if (err) throw err;
-    return {result};
+    return { result };
   }).clone().catch(function (err) {
     console.log(err)
   })
-  return {data}
+  return { data }
 }
 
 const Update = async (query, update) => {
@@ -45,12 +47,12 @@ const Update = async (query, update) => {
 
 }
 
-const Update2 =  async (query, update) => {
+const Update2 = async (query, update) => {
   const opts = { new: true, upsert: true };
-  await Content.findOneAndUpdate(query, {...update}, opts);
+  await Content.findOneAndUpdate(query, { ...update }, opts);
   console.log(`>> UPDATED DATABASE`);
 }
 
 let Content = mongoose.model('Content', SchemaSettings);
 
-module.exports = {Content, Create, Data, Update2};
+module.exports = { Content, Create, Data, Update2 };
