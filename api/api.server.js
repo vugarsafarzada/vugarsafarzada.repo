@@ -8,6 +8,7 @@ const icons_router = require('./router/icons_router');
 const intro_router = require('./router/intro_router');
 const content_router = require('./router/content_router');
 const article_router = require('./router/article_router');
+const image_uploader = require('./router/image_uploader')
 
 const { DataBase } = require('./model');
 const Lesson = require('./lessons');
@@ -41,64 +42,9 @@ app.use("/api/articles",article_router);
 //AUTH API
 app.use("/api/auth", auth_router);
 
-
-app.use("/api/content/:id", (req, res) => {
-  console.log(req.path)
-  const page_query = req.path.split("/")[1]
-  Lesson.Find({lesson_title: page_query}).then(function (result) {
-    switch (req.params.id) {
-      case "articles":
-        res.json(result);
-        break;
-      case "lessons":
-        res.json(result);
-        break;
-      case "main_menu":
-        res.json(result);
-        break;
-      default:
-        res.send({message: "Error!"})
-    }
-
-  });
-});
+//Upload Picture
+app.use("/upload", image_uploader);
 
 app.listen(port, () => {
   console.log(`>> API IN RUNNING ON http://${host}:${port}/api`)
 })
-
-/*
-createLesson(
-  "/url",
-  "C#",
-  "C# haqqında",
-  "Proqramlawdirma",
-  "11/10/21",
-  100001,
-)
-
-Introduce.Data({})
-  .then(function(result) {
-    console.log(result)
-  })
-
-*/
-
-/*Introduce.Update({
-  experience: [
-    {
-      company_name: "Positive MMC",
-      company_url: "https://positive.com.az/",
-      title: "Front-End Developer",
-      date: new Date(2021, 8, 16),
-      location: "Baku, Azerbaijan",
-      project: [
-        {
-          name: "Development of Note.az",
-          date: new Date(2021, 8, 16),
-          description: ""
-        }
-      ]
-    },
-  ]
-})*/

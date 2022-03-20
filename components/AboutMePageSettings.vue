@@ -13,12 +13,13 @@
             alt="picture"
           />
           <label>
-            <input
+<!--            <input
               type="text"
               class="default-inp"
               @change="() => changHandler('picture')"
               v-model="p_picture"
-            />
+            />-->
+            <MediaUploader to="/contents=url:about_me=picture"/>
           </label>
         </div>
       </div>
